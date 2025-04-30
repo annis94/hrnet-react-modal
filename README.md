@@ -1,54 +1,79 @@
-# React + TypeScript + Vite
+# hrnet-react-modal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une modale React réutilisable et personnalisable pour vos applications.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install hrnet-react-modal
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Utilisation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```tsx
+import { useState } from 'react';
+import Modal from 'hrnet-react-modal';
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(true)}>Ouvrir la modale</button>
+      
+      <Modal 
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      >
+        <h2>Contenu de la modale</h2>
+        <p>Ceci est un exemple de contenu.</p>
+      </Modal>
+    </div>
+  );
+}
 ```
+
+## Props
+
+| Nom | Type | Description | Obligatoire |
+|-----|------|-------------|-------------|
+| `isOpen` | `boolean` | Contrôle l'état d'ouverture/fermeture de la modale | ✅ |
+| `onClose` | `() => void` | Fonction appelée lors de la fermeture de la modale (clic sur l'overlay, touche Escape, ou bouton de fermeture) | ✅ |
+| `children` | `React.ReactNode` | Contenu à afficher dans la modale | ✅ |
+
+## Fonctionnalités
+
+- Fermeture au clic sur l'overlay
+- Fermeture avec la touche Escape
+- Bouton de fermeture en haut à droite
+- Animation de transition fluide
+- Gestion automatique du scroll du body
+- Support du mode sombre (via les classes Tailwind)
+- Accessibilité (ARIA attributes, focus management)
+
+## Styles
+
+Le composant utilise Tailwind CSS pour le styling. Assurez-vous d'avoir Tailwind configuré dans votre projet.
+
+## Dépendances
+
+- React 18+
+- Tailwind CSS
+- Lucide React (pour l'icône de fermeture)
+
+## Développement
+
+```bash
+# Installation des dépendances
+npm install
+
+# Démarrage du serveur de développement
+npm run dev
+
+# Build de la librairie
+npm run build
+```
+
+## Licence
+
+MIT

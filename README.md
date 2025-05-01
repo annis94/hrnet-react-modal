@@ -2,6 +2,48 @@
 
 Une modale React réutilisable et personnalisable pour vos applications.
 
+## Prérequis d'Utilisation
+
+Pour utiliser ce package, vous devez avoir :
+
+1. **Environnement de développement** :
+   - Node.js (version 14 ou supérieure)
+   - npm (version 6 ou supérieure)
+   - Un éditeur de code (VS Code recommandé)
+
+2. **Projet React** :
+   - React 18 ou supérieur
+   - TypeScript (recommandé)
+   - Un gestionnaire de paquets (npm ou yarn)
+
+3. **Dépendances requises** :
+   - Tailwind CSS (version 3.0 ou supérieure)
+   - Lucide React (pour les icônes)
+   - Un bundler (Vite, Webpack, etc.)
+
+4. **Configuration nécessaire** :
+   - Tailwind CSS doit être correctement configuré dans votre projet
+   - Les styles Tailwind doivent être importés dans votre fichier principal
+   - Le fichier de configuration Tailwind doit inclure les chemins vers vos composants
+
+## Informations du Package
+
+- **Version** : 0.1.0
+- **Dernière publication** : il y a 2 jours
+- **Auteur** : anis92
+- **Licence** : MIT
+- **Taille décompressée** : 194 kB
+- **Nombre total de fichiers** : 9
+- **Téléchargements hebdomadaires** : 42
+
+## Mots-clés
+
+- modal
+- react-modal
+- dialogue
+- popup
+- overlay
+
 ## Installation
 
 ```bash
